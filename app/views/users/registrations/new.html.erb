@@ -3,13 +3,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-
-  <div class="field">
-    <%= f.label :user_type %><br />
-    <%= f.select :user_type, options_for_select(%w[User Client Trainer]) %>
-  </div>
-
-  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -27,6 +20,13 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+
+  <div class="field">
+    <%= f.label :user_type %> - Please select one of the following:<br />
+    <%= f.select :user_type, options_for_select(%w[Client Trainer]) %>
+  </div>
+
+  <br>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
