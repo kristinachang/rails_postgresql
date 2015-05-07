@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
+  root to: 'site#index'
 
+  get '/about', to: 'site#about', as: 'about'
 
+  get '/contact', to: 'site#contact', as: 'contact'
 
+    
 =begin
   Prefix Verb   URI Pattern                    Controller#Action
         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
