@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
   root to: 'site#index'
 
   get '/about', to: 'site#about', as: 'about'
 
   get '/contact', to: 'site#contact', as: 'contact'
 
-    
+  get '/clients/:id', to: 'clients#show'
+  get '/trainers/:id', to: 'trainers#show'
+
+  get '/profile', to: 'users#show', as: 'profile'
+  get '/profile/edit', to: 'users#edit', as: 'edit_profile'
+
 =begin
   Prefix Verb   URI Pattern                    Controller#Action
         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new

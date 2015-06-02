@@ -14,3 +14,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function() {
+	$('#user_user_type').change(function(){
+		var selectedType = $(this).val();
+		if (selectedType === 'Trainer') {
+			$('#trainer_field').hide();
+		}
+		else {
+			$('#trainer_field').show();
+		}
+
+	});
+	$('#new_user').submit(function() {
+		console.log('submitting form')
+		var finalType = $('#user_user_type').val();
+		console.log(finalType)
+		if (finalType === 'Trainer') {
+			$('#user_trainer_id').prop('disabled', true);
+		}
+	}); 
+});

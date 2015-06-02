@@ -9,14 +9,14 @@ class ApplicationController < ActionController::Base
 
   protected
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) {|u| u.permit({user_type: []}, :email, :password)}
+      devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:user_type, :email, :password, :trainer_id)}
     end
 
   private
-  	def user_not_authorized
-  		flash[:alert] = "You are not authorized to perform this action."
-  		redirect_to(request.referrer || root_path)
-  	end
+  	# def user_not_authorized
+  	# 	flash[:alert] = "You are not authorized to perform this action."
+  	# 	redirect_to(request.referrer || root_path)
+  	# end
 
 
 end

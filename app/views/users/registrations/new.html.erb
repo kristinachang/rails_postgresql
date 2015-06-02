@@ -28,6 +28,13 @@
 
   <br>
 
+  <div class="field" id="trainer_field">
+    <%= f.label :trainer_id %> - Please select your trainer:<br />
+    <%= f.select :trainer_id, options_for_select(Trainer.all.map{|trainer| [trainer.email, trainer.id]}) %>
+  </div>
+
+  <br>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
