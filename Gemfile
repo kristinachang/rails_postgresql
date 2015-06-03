@@ -32,6 +32,10 @@ gem 'devise'
 
 gem 'pundit'
 
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
+
+gem 'aws-sdk'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

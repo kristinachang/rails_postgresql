@@ -2,19 +2,19 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   root to: 'site#index'
-
   get '/about', to: 'site#about', as: 'about'
-
   get '/contact', to: 'site#contact', as: 'contact'
 
   get '/clients/:id', to: 'clients#show'
+  
   get '/trainers/:id', to: 'trainers#show'
 
   get '/profile', to: 'users#show', as: 'profile'
   get '/profile/edit', to: 'users#edit', as: 'edit_profile'
 
 =begin
-  Prefix Verb   URI Pattern                    Controller#Action
+                  Prefix Verb   URI Pattern                    Controller#Action
+
         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
             user_session POST   /users/sign_in(.:format)       devise/sessions#create
     destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
@@ -23,13 +23,24 @@ Rails.application.routes.draw do
       edit_user_password GET    /users/password/edit(.:format) devise/passwords#edit
                          PATCH  /users/password(.:format)      devise/passwords#update
                          PUT    /users/password(.:format)      devise/passwords#update
-cancel_user_registration GET    /users/cancel(.:format)        devise/registrations#cancel
-       user_registration POST   /users(.:format)               devise/registrations#create
-   new_user_registration GET    /users/sign_up(.:format)       devise/registrations#new
-  edit_user_registration GET    /users/edit(.:format)          devise/registrations#edit
-                         PATCH  /users(.:format)               devise/registrations#update
-                         PUT    /users(.:format)               devise/registrations#update
-                         DELETE /users(.:format)               devise/registrations#destroy
+cancel_user_registration GET    /users/cancel(.:format)        registrations#cancel
+       user_registration POST   /users(.:format)               registrations#create
+   new_user_registration GET    /users/sign_up(.:format)       registrations#new
+  edit_user_registration GET    /users/edit(.:format)          registrations#edit
+                         PATCH  /users(.:format)               registrations#update
+                         PUT    /users(.:format)               registrations#update
+                         DELETE /users(.:format)               registrations#destroy
+
+                    root GET    /                              site#index
+                   about GET    /about(.:format)               site#about
+                 contact GET    /contact(.:format)             site#contact
+
+                         GET    /clients/:id(.:format)         clients#show
+
+                         GET    /trainers/:id(.:format)        trainers#show
+
+                 profile GET    /profile(.:format)             users#show
+            edit_profile GET    /profile/edit(.:format)        users#edit
 =end
 
   # The priority is based upon order of creation: first created -> highest priority.
