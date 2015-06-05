@@ -36,6 +36,10 @@ gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
 gem 'aws-sdk'
 
+gem 'best_in_place'
+
+gem 'pry-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

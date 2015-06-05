@@ -1,3 +1,23 @@
+This is your profile page, <%= current_user.email %>! <br>
 User's Profile <br>
 /profile <br>
-users/show.html.erb
+users/show.html.erb <br>
+
+<br>
+
+<div>Email: <%= @user.email %></div>
+<div>First Name: <%= @user.first_name %></div>
+<div>Last Name: <%= @user.last_name %></div>
+<div>Gender: <%= @user.gender %></div>
+<div>Height in inches: <%= @user.height %></div>
+<div>Weight in lbs: <%= @user.weight %></div>
+<div>Age: <%= @user.age %></div>
+<div>Phone #: <%= @user.phone %></div>
+
+<% if @user.user_type == "Trainer" %>
+	Certifications: <%= @user.certifications %>
+<% else %>
+	Occupation: <%= @user.occupation %>
+<% end %>
+
+<div><a href="/profile/edit">Edit this Profile</a></div>

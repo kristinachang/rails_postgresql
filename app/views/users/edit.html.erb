@@ -1,3 +1,47 @@
 User's Profile EDIT <br>
 /profile/edit <br>
 users/edit.html.erb
+
+<div><%= @user.email %></div>
+<%= current_user.email %>
+<hr>
+	
+
+<hr>
+<%= form_for @user do |f| %> 
+
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name %>
+	<br>
+	<%= f.label :last_name %>
+	<%= f.text_field :last_name %>
+	<br>
+	<%= f.label :gender %>
+	<%= f.text_field :gender %>
+	<br>
+	<%= f.label :height %> (in inches)
+	<%= f.text_field :height %>
+	<br>
+	<%= f.label :weight %> (in lbs)
+	<%= f.text_field :weight %>
+	<br>
+	<%= f.label :age %>
+	<%= f.text_field :age %>
+	<br>
+	<%= f.label :phone %>
+	<%= f.text_field :phone %>
+	<br>
+	<% if @user.user_type == "Trainer" %>
+		<%= f.label :certifications %>
+		<%= f.text_field :certifications, placeholder: "certifications" %>
+	<% else %>
+		<%= f.label :occupation %>
+		<%= f.text_field :occupation, placeholder: "occupation" %>
+	<% end %>
+	<br>
+	<%= f.submit "Save Profile", class: "btn btn-primary" %>
+
+<% end %>
+
+
+

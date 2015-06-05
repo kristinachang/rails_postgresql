@@ -11,7 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # uncomment below when profile routes are set up
   # def create
   #   super
-    
   # end
 
   # GET /resource/edit

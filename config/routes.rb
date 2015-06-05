@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   shallow do
     resources :trainers do
       resources :clients do
+        resources :entries
         resources :programs do
           resources :exercises do
             resources :media 
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
 
 =begin
                   Prefix Verb   URI Pattern                                   Controller#Action
+
         new_user_session GET    /users/sign_in(.:format)                      devise/sessions#new
             user_session POST   /users/sign_in(.:format)                      devise/sessions#create
     destroy_user_session DELETE /users/sign_out(.:format)                     devise/sessions#destroy
@@ -47,6 +49,15 @@ cancel_user_registration GET    /users/cancel(.:format)                       re
 
                  profile GET    /profile(.:format)                            users#show
             edit_profile GET    /profile/edit(.:format)                       users#edit
+
+          client_entries GET    /clients/:client_id/entries(.:format)         entries#index
+                         POST   /clients/:client_id/entries(.:format)         entries#create
+        new_client_entry GET    /clients/:client_id/entries/new(.:format)     entries#new
+              edit_entry GET    /entries/:id/edit(.:format)                   entries#edit
+                   entry GET    /entries/:id(.:format)                        entries#show
+                         PATCH  /entries/:id(.:format)                        entries#update
+                         PUT    /entries/:id(.:format)                        entries#update
+                         DELETE /entries/:id(.:format)                        entries#destroy
 
           exercise_media GET    /exercises/:exercise_id/media(.:format)       media#index
                          POST   /exercises/:exercise_id/media(.:format)       media#create
@@ -83,7 +94,7 @@ cancel_user_registration GET    /users/cancel(.:format)                       re
                          PATCH  /clients/:id(.:format)                        clients#update
                          PUT    /clients/:id(.:format)                        clients#update
                          DELETE /clients/:id(.:format)                        clients#destroy
-                         
+
                 trainers GET    /trainers(.:format)                           trainers#index
                          POST   /trainers(.:format)                           trainers#create
              new_trainer GET    /trainers/new(.:format)                       trainers#new
