@@ -2,6 +2,7 @@ class TrainersController < ApplicationController
 
 	def show
 		# GET /trainers/:id  trainer
+		# This is a trainer's show page, it is the trainer's home page.
 		@trainer = User.find(params[:id])
 		
 		if current_user == @trainer
@@ -22,6 +23,7 @@ class TrainersController < ApplicationController
 	end
 
 	def update
+		# This is the child of User. This updates the trainer's profile.
 		trainerParams = user_params
 		@trainer = current_user
 		if @trainer.update_attributes trainerParams
