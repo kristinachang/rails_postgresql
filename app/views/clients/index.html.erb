@@ -1,0 +1,20 @@
+Client Index <br>
+/trainers/:trainer_id/clients <br>
+clients/index.html.erb <br>
+
+<h1>All My Clients</h1>
+
+<h2>Link to client1 /clients/:id</h2>
+<h2>Link to client2 /clients/:id</h2> <br>
+etc...
+
+<div class='container'>
+<div class='row'>
+	<h3>Name:</h3>
+	<% @trainer.clients.each do |client| %>
+		<p><%= client.first_name %>
+		   <%= client.last_name %>
+			<button class="button-link"><%= link_to 'Show', client_path(client) %></button>
+		</p>
+	<% end -%>
+</div>

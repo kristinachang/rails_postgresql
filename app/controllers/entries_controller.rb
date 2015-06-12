@@ -2,7 +2,7 @@ class EntriesController < ApplicationController
 
 	def index
 		# GET /clients/:client_id/entries  client_entries
-		@entries = @client.entries
+		# @entries = @client.Entry.all
 	end
 
 	def new

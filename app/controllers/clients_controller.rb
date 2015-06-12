@@ -3,6 +3,8 @@ class ClientsController < ApplicationController
 	def index
 		# GET /trainers/:trainer_id/clients  trainer_clients
 		# This is a trainer's page with links to all of his/her clients.
+		@trainer = current_user
+		@clients = Client.all 
 	end
 
 	def show
